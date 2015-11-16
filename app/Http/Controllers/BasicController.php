@@ -7,19 +7,19 @@ class BasicController extends Controller
 
     public function routeWithSessionFlash()
     {
-        \Session::flash('test','value');
+        \Session::flash('test','flashedData');
         return redirect()->route('destination');
     }
 
     public function routeWithSessionPut()
     {
-        \Session::put('test','value');
+        \Session::put('test','flashedData');
         return redirect()->route('destination');
     }
 
     public function routeWithoutRedirect()
     {
-        \Session::flash('test','value');
+        \Session::flash('test','flashedData');
         return view('output');
     }
 

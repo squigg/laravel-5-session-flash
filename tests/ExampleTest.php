@@ -11,7 +11,8 @@ class ExampleTest extends TestCase
     {
         $this->flushSession();
         $this->visit('/routeWithoutRedirect');
-        $this->assertSessionHas('test','value');
+        $this->assertSessionHas('test','flashedData');
+        $this->see('flashedData');
     }
 
     /**
@@ -24,7 +25,8 @@ class ExampleTest extends TestCase
         $this->flushSession();
         $this->visit('/routeWithSessionPut');
         $this->seePageIs('/destination');
-        $this->assertSessionHas('test','value');
+        $this->assertSessionHas('test','flashedData');
+        $this->see('flashedData');
     }
 
     /**
@@ -37,6 +39,7 @@ class ExampleTest extends TestCase
         $this->flushSession();
         $this->visit('/routeWithSessionFlash');
         $this->seePageIs('/destination');
-        $this->assertSessionHas('test','value');
+        $this->assertSessionHas('test','flashedData');
+        $this->see('flashedData');
     }
 }
